@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Authentication.CreateController">
+   <right>
+      <AnchorPane prefHeight="600.0" prefWidth="321.0" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <AnchorPane prefHeight="600.0" prefWidth="599.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="236.0" layoutY="10.0" prefHeight="17.0" prefWidth="174.0" text="Account Creation">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="207.0" layoutY="52.0" text="Fill the form carefully to Create account " />
+            <Label layoutX="279.0" layoutY="129.0" text="Personal Information" />
+            <TextField fx:id="newfirstnaemfld" layoutX="215.0" layoutY="184.0" prefHeight="25.0" prefWidth="308.0" promptText="Enter Your FirstName" />
+            <TextField fx:id="newlastnamefld" layoutX="215.0" layoutY="242.0" prefHeight="25.0" prefWidth="307.0" promptText="Enter Your LastName" />
+            <TextField fx:id="newuserfld" layoutX="217.0" layoutY="308.0" prefHeight="25.0" prefWidth="304.0" promptText="Create Your UserName" />
+            <TextField fx:id="newphonefld" layoutX="214.0" layoutY="359.0" prefHeight="25.0" prefWidth="309.0" promptText="phoneNumber" />
+            <TextField fx:id="newemailfld" layoutX="214.0" layoutY="412.0" prefHeight="25.0" prefWidth="310.0" promptText="Email Address" />
+            <TextField fx:id="newpassfld" layoutX="215.0" layoutY="475.0" prefHeight="25.0" prefWidth="307.0" promptText="password" />
+            <Button fx:id="signinbtn2" layoutX="462.0" layoutY="560.0" mnemonicParsing="false" text="Sign In" />
+            <ImageView fitHeight="200.0" fitWidth="136.0" layoutX="10.0" layoutY="10.0">
+               <image>
+                  <Image url="@../../../../Desktop/Profile.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="27.0" layoutY="210.0" text="Profile Picture" />
+            <Button layoutX="10.0" layoutY="242.0" mnemonicParsing="false" text="Browse picture" />
+         </children>
+      </AnchorPane>
+   </bottom>
+</BorderPane>
