@@ -1,5 +1,7 @@
 package Authentication;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -13,6 +15,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 
 public class CreateController implements Initializable {
@@ -31,6 +37,25 @@ public class CreateController implements Initializable {
 	private TextField newemailfld;
 	@FXML
 	private TextField newpassfld;
+	//@FXML
+	
+	///New code for uploding image//
+	//private ImageView imageview;
+	//@FXML
+	//private Button getimgbtn;
+	//private Image image;
+	
+	//private FileChooser fileChooser;
+	//private File file;
+	//private FileInputStream fis;
+	
+	String filename = null;
+	byte[] person_image = null;
+	
+	
+	
+	
+	
 	
 	
 	
@@ -45,6 +70,25 @@ public class CreateController implements Initializable {
 			signup(event3);
 		});
 		
+		
+	///------------look here ------///
+		
+		
+		/*getimgbtn.setOnAction((event4)->{
+			file = fileChooser.showOpenDialog(null);
+			if(file != null) {
+				image = new Image(file.toURI().toString(),100,150,true,true);
+				
+				imageview = new ImageView(image);
+				imageview.setFitWidth(100);
+				imageview.setFitHeight(150);
+				imageview.setPreserveRatio(true);
+				
+				
+			}
+			System.out.println("browse button is pressed");
+			pic(event4);
+		});*/
 		
 	}
 	
@@ -116,6 +160,28 @@ private void signinview(Event event3) {
 
 private void signup(Event event3) {
 	signinview(event3);
+}
+
+
+//--code for uploading the image in the database
+private void uploadpic(Event event4) {
+		
+	//FileChooser chooser = new FileChooser();
+	//chooser.showOpenDialog(null);
+	//File f = chooser.getInitialDirectory();
+	//filename = f.getAbsolutePath();
+	//ImageIcon imageIcon = new ImageIcon(new Image(filename).getImage().getScaledInstance());
+	//String filename = f.getAbsolutePath();txt
+	
+	//Image getAbsolutepath = null;
+	
+	
+	
+	
+}
+
+private void pic(Event event4) {
+	uploadpic(event4);
 }
 	
 

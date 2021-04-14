@@ -30,13 +30,13 @@
             <TextField fx:id="newemailfld" layoutX="214.0" layoutY="412.0" prefHeight="25.0" prefWidth="310.0" promptText="Email Address" />
             <TextField fx:id="newpassfld" layoutX="215.0" layoutY="475.0" prefHeight="25.0" prefWidth="307.0" promptText="password" />
             <Button fx:id="signinbtn2" layoutX="462.0" layoutY="560.0" mnemonicParsing="false" text="Sign In" />
-            <ImageView fitHeight="200.0" fitWidth="136.0" layoutX="10.0" layoutY="10.0">
+            <ImageView fx:id="imageview" fitHeight="200.0" fitWidth="136.0" layoutX="10.0" layoutY="10.0">
                <image>
                   <Image url="@../../../../Desktop/Profile.jpg" />
                </image>
             </ImageView>
             <Label layoutX="27.0" layoutY="210.0" text="Profile Picture" />
-            <Button layoutX="10.0" layoutY="242.0" mnemonicParsing="false" text="Browse picture" />
+            <Button fx:id="getimgbtn" layoutX="10.0" layoutY="242.0" mnemonicParsing="false" text="Browse picture" />
          </children>
       </AnchorPane>
    </bottom>

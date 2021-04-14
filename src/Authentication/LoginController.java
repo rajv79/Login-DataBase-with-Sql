@@ -120,9 +120,9 @@ public class LoginController implements Initializable {
 		String username = userid.getText();
 		String password = passid.getText();
 		
-		int result1 = DataBaseController.showinfo(username, password);
+		//int result1 = DataBaseController.showinfo(username, password);
 		
-		
+		User user = DataBaseController.getUser(username);
 		
 		
 		
@@ -135,7 +135,8 @@ public class LoginController implements Initializable {
 			
 
 			Parent parent = loader.load(); // --------------seating up for next screen
-			
+			PersonalController controller = loader.getController();
+			controller.setUser(user);
 			Scene scene = new Scene(parent);
 			Stage window = (Stage) ((Node) event4.getSource()).getScene().getWindow();
 			window.setScene(scene);

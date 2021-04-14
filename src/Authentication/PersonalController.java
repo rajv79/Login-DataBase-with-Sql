@@ -60,7 +60,15 @@ public class PersonalController implements Initializable {
 		
 	}
 	
-	
+	public void setUser(User user) {
+		firstfld.setText(user.getFirstName());
+		lastfld.setText(user.getLastName());
+		userfld.setText(user.getUserName());
+		passfld.setText(user.getPassword());
+		phonefld.setText(user.getPhoneNumber());
+		emailfld.setText(user.getEmail());
+		
+	}
 private void logout(Event event1) {
 		
 		try {

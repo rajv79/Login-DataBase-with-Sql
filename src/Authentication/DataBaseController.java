@@ -32,7 +32,7 @@ public class DataBaseController {
 					+ "PASSWORD VARCHAR(50) NOT NULL," + "PhoneNumber VARCHAR(11),"
 					+ "Email VARCHAR(50) NOT NULL UNIQUE ,"
 
-					+ " Profile VARCHAR(50) NOT NULL" + ")");
+					+ " Profile BLOB NOT NULL" + ")");
 
 			statement
 					.execute("INSERT INTO USER" + "(FIRSTNAME ,LASTNAME, USERNAME,PASSWORD,PhoneNumber,Email , Profile)"
@@ -105,7 +105,7 @@ public class DataBaseController {
 				user = new User(id, first, last, username1, password1, phone, email, profile);
 
 			}
-
+			connection.close();
 			// 1 means username doesnt exist
 			if (user == null) {
 				return 1;
@@ -124,14 +124,17 @@ public class DataBaseController {
 
 	}
 
-	public static ArrayList<User> getUsers() {
-		ArrayList<User> users = new ArrayList<>();
+	public static User getUser( String user) {
+		
+		User user1 = null;
 		try {
 			Connection connection = null;
 			connection = ConnectionUtil.getConnection("USER.db");
 			Statement statement = connection.createStatement();
-
-			ResultSet rs = statement.executeQuery("SELECT * FROM USER");
+			
+			
+			
+			ResultSet rs = statement.executeQuery("SELECT * FROM USER  WHERE USERNAME ='"+user+"'");
 			while (rs.next()) {
 				int id = rs.getInt("ID");
 				String first = rs.getString("FIRSTNAME");
@@ -142,14 +145,16 @@ public class DataBaseController {
 				String email = rs.getString("Email");
 				String profile = rs.getString("Profile");
 
-				User user = new User(id, first, last, username, password, phone, email, profile);
-				users.add(user);
+				 user1 = new User(id, first, last, username, password, phone, email, profile);
+				
+				
 			}
+			connection.close();
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return users;
+		return user1;
 
 	}
 
@@ -179,6 +184,8 @@ public class DataBaseController {
 					"INSERT INTO USER " + "(FIRSTNAME ,LASTNAME ,USERNAME ,PASSWORD ,PhoneNumber,Email,Profile)"
 							+ "VALUES('" + first + "' ,'" + last + "','" + username + "','" + password + "','" + phone
 							+ "', '" + email + "' ,'" + profile + "')");
+			
+			connection.close();
 
 		} catch (Exception e) {
 
@@ -246,7 +253,7 @@ public class DataBaseController {
 			
 			
 			
-			
+			connection.close();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -257,6 +264,12 @@ public class DataBaseController {
 		
 
 	}
+	
+	
+	//---inserting Image---- in sql ---//
+	
+	
+	
 	
 	//----showing userinfo ------//
 	
