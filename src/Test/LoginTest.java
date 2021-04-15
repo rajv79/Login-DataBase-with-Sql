@@ -12,16 +12,20 @@ import Authentication.User;
 public class LoginTest {
 
 	
-	@Test
+	@Test // Login test for login functionality 
 	public void TestloginFuctionallity() {
 		
-		
-		
-		int result = DataBaseController.loginUser(null, "Sad1234@"); // login is good
+		int result = DataBaseController.loginUser("Abc1234", "Sad1234@"); // login is good
 		assertTrue(result==1);
 		
 		
-		
+	}
+	
+	@Test //Login Test for login functionality 
+	
+	public void TestLoginFunctionality() {
+		int result = DataBaseController.loginUser("ABCDE123","aBCDE");
+		assertTrue(result ==1);
 		
 	}
 	

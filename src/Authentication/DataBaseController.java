@@ -1,5 +1,8 @@
 package Authentication;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,6 +12,7 @@ import java.util.ArrayList;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.image.Image;
 
 public class DataBaseController {
 
@@ -32,7 +36,7 @@ public class DataBaseController {
 					+ "PASSWORD VARCHAR(50) NOT NULL," + "PhoneNumber VARCHAR(11),"
 					+ "Email VARCHAR(50) NOT NULL UNIQUE ,"
 
-					+ " Profile BLOB NOT NULL" + ")");
+					+ " Profile VARCHAR(200000) NOT NULL" + ")");
 
 			statement
 					.execute("INSERT INTO USER" + "(FIRSTNAME ,LASTNAME, USERNAME,PASSWORD,PhoneNumber,Email , Profile)"
@@ -100,6 +104,7 @@ public class DataBaseController {
 				String password1 = rs.getString("PASSWORD");
 				String phone = rs.getString("PhoneNumber");
 				String email = rs.getString("Email");
+				
 				String profile = rs.getString("Profile");
 
 				user = new User(id, first, last, username1, password1, phone, email, profile);
@@ -171,7 +176,11 @@ public class DataBaseController {
 			System.out.println(username + " " + password);
 
 			PreparedStatement pst = connection.prepareStatement(query);
+			//InputStream is = new FileInputStream(new File(profile));
 			pst.setString(1, username);
+			//pst.setBlob(2, is);
+			
+			
 
 			ResultSet rs = pst.executeQuery();
 			// return 1 if username is in database
@@ -334,7 +343,23 @@ public class DataBaseController {
 	
 	
 	
-	
+	public static int changeImagetoByte(String img) {
+		
+		
+		try {
+			//File file = new File(img);
+			//FileInputStream fis = new FileInputStream(file);
+			
+			
+			
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+		
+	}
 	
 	
 	

@@ -37,42 +37,36 @@ public class ForgotController implements Initializable {
 
 	}
 
-	
-
 	private void signinview(Event event1) {
-		
-		
+
 		String username = userid.getText();
 		String newpass = newpassid.getText();
-		
-		
-		if(!DataBaseController.isValid(newpass)) {
+
+		if (!DataBaseController.isValid(newpass)) {
 			Alert alert = new Alert(Alert.AlertType.WARNING);
-			alert.setContentText("Invalid Password!! "
-					+ " \n please Make sure your Password must be atlest 6 Letter long"
-					+ " \n one lower case letter,one digit and  \n"
-					+ "\n one speacial character ");
-			
+			alert.setContentText(
+					"Invalid Password!! " + " \n please Make sure your Password must be atlest 6 Letter long"
+							+ " \n one lower case letter,one digit and  \n" + "\n one speacial character ");
+
 			alert.show();
 			System.out.println("incorrect password");
 			return;
 		}
-		
-		System.out.println( username +" "+ newpass);
-		
-		int result = DataBaseController.changepassword(  username ,newpass);
-		
-		
-		//1 means password got change for that user 
-		
+
+		System.out.println(username + " " + newpass);
+
+		int result = DataBaseController.changepassword(username, newpass);
+
+		// 1 means password got change for that user
+
 		if (result == 1) {
-			
+
 			System.out.println("Exception !!");
-		}else {
-			//System.out.println(username + " " + newpass);
-			
+		} else {
+			// System.out.println(username + " " + newpass);
+
 			System.out.println("password Changed susscefully");
-			
+
 		}
 
 		try {

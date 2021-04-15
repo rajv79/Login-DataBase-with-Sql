@@ -8,6 +8,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane fx:id="main_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Authentication.LoginController">
@@ -15,30 +18,108 @@
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="326.0" fitWidth="213.0" layoutX="-3.0">
+            <ImageView fitHeight="600.0" fitWidth="255.0" layoutX="-3.0">
                <image>
-                  <Image url="@../../../../Desktop/download.png" />
+                  <Image url="@../Images/login-png-2.png" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
    </left>
    <right>
-      <AnchorPane prefHeight="600.0" prefWidth="389.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="600.0" prefWidth="351.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="21.0" layoutY="49.0" text="Welcome">
+            <Label layoutX="112.0" layoutY="36.0" text="Welcome">
                <font>
-                  <Font size="20.0" />
+                  <Font name="System Bold" size="22.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.016949151532124666">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.09060266613960266" green="0.4038979709148407" blue="0.9078947305679321" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="53.0" layoutY="106.0" prefHeight="22.0" prefWidth="264.0" text="Login below to Acesss your account">
+               <font>
+                  <Font name="Centaur" size="18.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.016949151532124666">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.09060266613960266" green="0.4038979709148407" blue="0.9078947305679321" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill></Label>
+            <Label layoutX="38.0" layoutY="217.0" prefHeight="23.0" prefWidth="73.0" text="Username">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.016949151532124666">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.09060266613960266" green="0.4038979709148407" blue="0.9078947305679321" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill></Label>
+            <Label layoutX="39.0" layoutY="287.0" text="Password">
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.016949151532124666">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.09060266613960266" green="0.4038979709148407" blue="0.9078947305679321" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill></Label>
+            <Button fx:id="signinbtn" layoutX="143.0" layoutY="402.0" mnemonicParsing="false" text="Sign In" textFill="#e80b0b" />
+            <Button fx:id="signupbtn" layoutX="140.0" layoutY="524.0" mnemonicParsing="false" text="Sign Up" textFill="#ed0a0a" />
+            <Button fx:id="forgotbtn" layoutX="199.0" layoutY="339.0" mnemonicParsing="false" text="Forgot Password?" textFill="#f2094b" />
+            <TextField fx:id="userid" layoutX="143.0" layoutY="217.0" prefHeight="25.0" prefWidth="149.0" promptText="Enter Your UserName" />
+            <PasswordField fx:id="passid" layoutX="143.0" layoutY="287.0" promptText="Enter Your Passowrd" />
+            <Label layoutX="79.0" layoutY="463.0" text="Are You a New User ?" textFill="#2865a6">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="21.0" layoutY="79.0" text="Login below to Acesss your account" />
-            <Label layoutX="14.0" layoutY="234.0" text="Username" />
-            <Label layoutX="14.0" layoutY="300.0" text="Password" />
-            <Button fx:id="signinbtn" layoutX="54.0" layoutY="404.0" mnemonicParsing="false" text="Sign In" />
-            <Button fx:id="signupbtn" layoutX="154.0" layoutY="403.0" mnemonicParsing="false" text="Sign Up" />
-            <Button fx:id="forgotbtn" layoutX="183.0" layoutY="333.0" mnemonicParsing="false" text="Forgot Password?" />
-            <TextField fx:id="userid" layoutX="89.0" layoutY="230.0" promptText="Enter Your UserName" />
-            <PasswordField fx:id="passid" layoutX="89.0" layoutY="296.0" promptText="Enter Your Passowrd" />
          </children>
       </AnchorPane>
    </right>

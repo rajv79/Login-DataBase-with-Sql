@@ -7,6 +7,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Authentication.CreateController">
@@ -14,29 +17,121 @@
       <AnchorPane prefHeight="600.0" prefWidth="321.0" BorderPane.alignment="CENTER" />
    </right>
    <bottom>
-      <AnchorPane prefHeight="600.0" prefWidth="599.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="600.0" prefWidth="599.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="236.0" layoutY="10.0" prefHeight="17.0" prefWidth="174.0" text="Account Creation">
+            <Label layoutX="265.0" layoutY="31.0" prefHeight="17.0" prefWidth="174.0" text="Account Creation">
                <font>
-                  <Font size="20.0" />
+                  <Font name="System Bold" size="20.0" />
                </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.14399999380111694" green="0.5870768427848816" blue="0.7200000286102295" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.1671999990940094" green="0.7634844183921814" blue="0.8799999952316284" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
             </Label>
-            <Label layoutX="207.0" layoutY="52.0" text="Fill the form carefully to Create account " />
-            <Label layoutX="279.0" layoutY="129.0" text="Personal Information" />
-            <TextField fx:id="newfirstnaemfld" layoutX="215.0" layoutY="184.0" prefHeight="25.0" prefWidth="308.0" promptText="Enter Your FirstName" />
-            <TextField fx:id="newlastnamefld" layoutX="215.0" layoutY="242.0" prefHeight="25.0" prefWidth="307.0" promptText="Enter Your LastName" />
+            <Label layoutX="217.0" layoutY="96.0" text="Fill the form carefully to Create account ">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.14399999380111694" green="0.5870768427848816" blue="0.7200000286102295" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.10849999636411667" green="0.3100000023841858" blue="0.2867499887943268" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill></Label>
+            <Label layoutX="274.0" layoutY="148.0" text="Personal Information">
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.14399999380111694" green="0.5870768427848816" blue="0.7200000286102295" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.1391821950674057" green="0.33481547236442566" blue="0.8728070259094238" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+               <font>
+                  <Font size="17.0" />
+               </font></Label>
+            <TextField fx:id="newfirstnaemfld" layoutX="215.0" layoutY="192.0" prefHeight="25.0" prefWidth="308.0" promptText="Enter Your FirstName" />
+            <TextField fx:id="newlastnamefld" layoutX="215.0" layoutY="250.0" prefHeight="25.0" prefWidth="307.0" promptText="Enter Your LastName" />
             <TextField fx:id="newuserfld" layoutX="217.0" layoutY="308.0" prefHeight="25.0" prefWidth="304.0" promptText="Create Your UserName" />
             <TextField fx:id="newphonefld" layoutX="214.0" layoutY="359.0" prefHeight="25.0" prefWidth="309.0" promptText="phoneNumber" />
-            <TextField fx:id="newemailfld" layoutX="214.0" layoutY="412.0" prefHeight="25.0" prefWidth="310.0" promptText="Email Address" />
+            <TextField fx:id="newemailfld" layoutX="213.0" layoutY="422.0" prefHeight="25.0" prefWidth="310.0" promptText="Email Address" />
             <TextField fx:id="newpassfld" layoutX="215.0" layoutY="475.0" prefHeight="25.0" prefWidth="307.0" promptText="password" />
-            <Button fx:id="signinbtn2" layoutX="462.0" layoutY="560.0" mnemonicParsing="false" text="Sign In" />
-            <ImageView fx:id="imageview" fitHeight="200.0" fitWidth="136.0" layoutX="10.0" layoutY="10.0">
+            <Button fx:id="signinbtn2" layoutX="462.0" layoutY="560.0" mnemonicParsing="false" text="Sign In">
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.14399999380111694" green="0.5870768427848816" blue="0.7200000286102295" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.1671999990940094" green="0.34539997577667236" blue="0.8799999952316284" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill></Button>
+            <ImageView fx:id="imageview" fitHeight="140.0" fitWidth="188.0" layoutX="-1.0">
                <image>
                   <Image url="@../../../../Desktop/Profile.jpg" />
                </image>
             </ImageView>
-            <Label layoutX="27.0" layoutY="210.0" text="Profile Picture" />
-            <Button fx:id="getimgbtn" layoutX="10.0" layoutY="242.0" mnemonicParsing="false" text="Browse picture" />
+            <Label layoutX="48.0" layoutY="175.0" text="Profile Picture">
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.14399999380111694" green="0.5870768427848816" blue="0.7200000286102295" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.19998104870319366" green="0.7271462678909302" blue="0.8201754093170166" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Button fx:id="getimgbtn" layoutX="32.0" layoutY="227.0" mnemonicParsing="false" text="Browse picture" textFill="#06bd27">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
          </children>
       </AnchorPane>
    </bottom>

@@ -2,7 +2,9 @@ package Authentication;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.net.URL;
+import java.util.Base64;
 import java.util.ResourceBundle;
 
 import javafx.event.Event;
@@ -24,7 +26,7 @@ import javafx.stage.Stage;
 public class CreateController implements Initializable {
 
 	@FXML
-	private Button  signinbtn2;
+	private Button signinbtn2;
 	@FXML
 	private TextField newfirstnaemfld;
 	@FXML
@@ -37,117 +39,82 @@ public class CreateController implements Initializable {
 	private TextField newemailfld;
 	@FXML
 	private TextField newpassfld;
-	//@FXML
+	@FXML
+
+	private ImageView imageview;
+	@FXML
+	private Button  getimgbtn;
+
+	private FileChooser fc = new FileChooser();
+	private File f;
+	private FileInputStream fis;
 	
-	///New code for uploding image//
-	//private ImageView imageview;
-	//@FXML
-	//private Button getimgbtn;
-	//private Image image;
-	
-	//private FileChooser fileChooser;
-	//private File file;
-	//private FileInputStream fis;
-	
-	String filename = null;
-	byte[] person_image = null;
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	private String profiletext = "";
 	
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
+
 		signinbtn2.setOnAction((event3) -> { // this code will help to take into new screen for registernow
 			System.out.println("Signin button is pressed now press here");
 			signup(event3);
 		});
-		
-		
-	///------------look here ------///
-		
-		
-		/*getimgbtn.setOnAction((event4)->{
-			file = fileChooser.showOpenDialog(null);
-			if(file != null) {
-				image = new Image(file.toURI().toString(),100,150,true,true);
-				
-				imageview = new ImageView(image);
-				imageview.setFitWidth(100);
-				imageview.setFitHeight(150);
-				imageview.setPreserveRatio(true);
-				
-				
-			}
-			System.out.println("browse button is pressed");
+		getimgbtn.setOnAction((event4)->{
+			System.out.println("Browse button is pressed");
 			pic(event4);
-		});*/
+		});
 		
+
 	}
-	
-	
-private void signinview(Event event3) {
-		
-	
-	String first = newfirstnaemfld.getText();
-	String last = newlastnamefld.getText();
-	String username = newuserfld.getText();
-	String password = newpassfld.getText();
-	String phone = newphonefld.getText();
-	String email = newemailfld.getText() ;
-	String profile = "";
-	
-	if(!DataBaseController.isValid(password)) {
-		Alert alert = new Alert(Alert.AlertType.WARNING);
-		alert.setContentText("Invalid Password!! "
-				+ " \n please Make sure your Password must be atlest 6 Letter long"
-				+ " \n one lower case letter,one digit and  \n"
-				+ "\n one speacial character ");
-		
-		alert.show();
-		System.out.println("incorrect password");
-		return;
-	}
-	
-	if(!DataBaseController.isUserValid(username)) {
-		Alert alert = new Alert(Alert.AlertType.WARNING);
-		alert.setContentText("Make sure your password is atlest 6 letter long");
-		alert.show();
-		return;
-	}
-	
-	
-	int result = DataBaseController.signup(first, last, username, password, phone, email, profile);
-	
-	if(result == 1) {
-		System.out.println("username already used");
-		Alert alert = new Alert(Alert.AlertType.WARNING);
-		alert.setContentText("UserName Already exist");
-		alert.show();
-	}else if(result == -1) {
-		System.out.println("Exception detected");
-	}else {
-		System.out.println("user created");
-	}
-	
-	
+
+	private void signinview(Event event3) {
+
+		String first = newfirstnaemfld.getText();
+		String last = newlastnamefld.getText();
+		String username = newuserfld.getText();
+		String password = newpassfld.getText();
+		String phone = newphonefld.getText();
+		String email = newemailfld.getText();
+		String profile = "";
+
+		if (!DataBaseController.isValid(password)) {
+			Alert alert = new Alert(Alert.AlertType.WARNING);
+			alert.setContentText(
+					"Invalid Password!! " + " \n please Make sure your Password must be atlest 6 Letter long"
+							+ " \n one lower case letter,one digit and  \n" + "\n one speacial character ");
+
+			alert.show();
+			System.out.println("incorrect password");
+			return;
+		}
+
+		if (!DataBaseController.isUserValid(username)) {
+			Alert alert = new Alert(Alert.AlertType.WARNING);
+			alert.setContentText("Make sure your password is atlest 6 letter long");
+			alert.show();
+			return;
+		}
+
+		int result = DataBaseController.signup(first, last, username, password, phone, email, profiletext);
+
+		if (result == 1) {
+			System.out.println("username already used");
+			Alert alert = new Alert(Alert.AlertType.WARNING);
+			alert.setContentText("UserName Already exist");
+			alert.show();
+		} else if (result == -1) {
+			System.out.println("Exception detected");
+		} else {
+			System.out.println("user created");
+		}
+
 		try {
 
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(getClass().getResource("/Authentication/LoginScreen.fxml"));
-																								
-			
 
 			Parent parent = loader.load(); // --------------seating up for next screen
-			
-			
+
 			Scene scene = new Scene(parent);
 			Stage window = (Stage) ((Node) event3.getSource()).getScene().getWindow();
 			window.setScene(scene);
@@ -158,36 +125,53 @@ private void signinview(Event event3) {
 		}
 	}
 
-private void signup(Event event3) {
-	signinview(event3);
-}
-
+	private void signup(Event event3) {
+		signinview(event3);
+	}
 
 //--code for uploading the image in the database
-private void uploadpic(Event event4) {
+	private void uploadpic(Event event4) {
+
+		fc.getExtensionFilters().add(new ExtensionFilter("Images Files", "*.png", "*.jpg"));
+		f = fc.showOpenDialog(null);
+		String text = convertToBase64(f);
+		System.out.println(text.length());
 		
-	//FileChooser chooser = new FileChooser();
-	//chooser.showOpenDialog(null);
-	//File f = chooser.getInitialDirectory();
-	//filename = f.getAbsolutePath();
-	//ImageIcon imageIcon = new ImageIcon(new Image(filename).getImage().getScaledInstance());
-	//String filename = f.getAbsolutePath();txt
-	
-	//Image getAbsolutepath = null;
-	
-	
-	
-	
-}
-
-private void pic(Event event4) {
-	uploadpic(event4);
-}
-	
-
+		if (f != null &&  text.length()<=200000) {
+			
+			Image img = new Image(f.toURI().toString(),300 , 300, true, true);
+			imageview.setImage(img);
+			imageview.setPreserveRatio(true);
+			
+		profiletext = text;
 		
+			
 
+		}else {
+			System.out.println("pic is to Big");
+		}
 
-
+	}
 	
+	 
+
+	private void pic(Event event4) {
+		uploadpic(event4);
+	}
+	
+	private String convertToBase64(File file) {
+        try {
+           
+            FileInputStream fileInputStreamReader = new FileInputStream(file);
+            byte[] bytes = new byte[(int) file.length()];
+            fileInputStreamReader.read(bytes);
+            String encodedfile = Base64.getEncoder().encodeToString(bytes);
+            fileInputStreamReader.close();
+            return encodedfile;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return "";
+    }
+
 }

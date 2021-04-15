@@ -93,11 +93,9 @@ public class LoginController implements Initializable {
 
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(getClass().getResource("/Authentication/PasswordChange.fxml"));
-			
-			
 
 			Parent parent = loader.load(); // --------------seating up for next screen
-			
+
 			ForgotController controller = loader.getController();
 			Scene scene = new Scene(parent);
 			Stage window = (Stage) ((Node) event3.getSource()).getScene().getWindow();
@@ -119,20 +117,15 @@ public class LoginController implements Initializable {
 
 		String username = userid.getText();
 		String password = passid.getText();
-		
-		//int result1 = DataBaseController.showinfo(username, password);
-		
+
+		// int result1 = DataBaseController.showinfo(username, password);
+
 		User user = DataBaseController.getUser(username);
-		
-		
-		
+
 		try {
-			
-			
 
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(getClass().getResource("/Authentication/PersonalInfo.fxml"));
-			
 
 			Parent parent = loader.load(); // --------------seating up for next screen
 			PersonalController controller = loader.getController();
@@ -146,10 +139,6 @@ public class LoginController implements Initializable {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
-	
 
 	private void signin(Event event4) {
 		signinview(event4);
@@ -158,7 +147,7 @@ public class LoginController implements Initializable {
 	// ___________________for checking passoword and username____________//
 
 	private void login(Event event) { // is for the login to other page
-		
+
 		String username = userid.getText();
 		String password = passid.getText();
 
@@ -182,15 +171,8 @@ public class LoginController implements Initializable {
 		} else {
 
 			System.out.println("You are good to Go");
-			
-			
-			
-			
+
 			signinview(event);
-			
-			
-			
-			
 
 		}
 

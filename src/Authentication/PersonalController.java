@@ -1,7 +1,13 @@
 package Authentication;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.net.URL;
+import java.util.Base64;
 import java.util.ResourceBundle;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -11,8 +17,11 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class PersonalController implements Initializable {
@@ -39,6 +48,10 @@ public class PersonalController implements Initializable {
 	private TextField phonefld;
 	@FXML
 	private TextField emailfld;
+	@FXML
+	private ImageView profileimg;
+	
+	
 	
 	
 	@Override
@@ -67,7 +80,26 @@ public class PersonalController implements Initializable {
 		passfld.setText(user.getPassword());
 		phonefld.setText(user.getPhoneNumber());
 		emailfld.setText(user.getEmail());
+		setImage(user.getProfile());
 		
+	}
+	
+	private void setImage(String text) {
+		if(!"".equals(text.trim())) {
+			
+			try {
+	            
+				
+	            byte[] bytes = Base64.getDecoder().decode(text);
+	            ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
+	          
+	            Image image = new Image(bis);
+	            profileimg.setImage(image);
+	        } catch (Exception ex) {
+	            ex.printStackTrace();
+	        }
+			
+		}
 	}
 private void logout(Event event1) {
 		
