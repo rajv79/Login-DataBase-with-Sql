@@ -1,5 +1,6 @@
 package Test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.jupiter.api.Disabled;
@@ -16,7 +17,7 @@ public class LoginTest {
 	public void TestloginFuctionallity() {
 		
 		int result = DataBaseController.loginUser("Abc1234", "Sad1234@"); // login is good
-		assertTrue(result==1);
+		assertEquals(true,result==1);
 		
 		
 	}
@@ -25,7 +26,7 @@ public class LoginTest {
 	
 	public void TestLoginFunctionality() {
 		int result = DataBaseController.loginUser("ABCDE123","aBCDE");
-		assertTrue(result ==1);
+		assertEquals(true,result ==1);
 		
 	}
 	
